@@ -134,11 +134,11 @@ $_SESSION['brndid']=$result->bid;
   <div class="container">
     <div class="listing_detail_head row">
       <div class="col-md-9">
-        <h2><?php echo htmlentities($result->BrandName);?> , <?php echo htmlentities($result->VehiclesTitle);?></h2>
+        <h2><?php //echo htmlentities($result->BrandName);?>  <?php echo htmlentities($result->VehiclesTitle);?></h2>
       </div>
       <div class="col-md-3">
         <div class="price_info">
-          <p>$<?php echo htmlentities($result->PricePerDay);?> </p>Per Day
+          <!-- <p>$<?php //echo htmlentities($result->PricePerDay);?> </p>Per Day -->
          
         </div>
       </div>
@@ -346,14 +346,14 @@ $_SESSION['brndid']=$result->bid;
             <h5><i class="fa fa-envelope" aria-hidden="true"></i>Book Now</h5>
           </div>
           <form method="post">
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label>From Date:</label>
               <input type="date" class="form-control" name="fromdate" placeholder="From Date" required>
             </div>
             <div class="form-group">
               <label>To Date:</label>
               <input type="date" class="form-control" name="todate" placeholder="To Date" required>
-            </div>
+            </div> -->
             <div class="form-group">
               <textarea rows="4" class="form-control" name="message" placeholder="Message" required></textarea>
             </div>
@@ -396,8 +396,8 @@ foreach($results as $result)
             <div class="product-listing-img"> <a href="vehical-details.php?vhid=<?php echo htmlentities($result->id);?>"><img src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1);?>" class="img-responsive" alt="image" /> </a>
             </div>
             <div class="product-listing-content">
-              <h5><a href="vehical-details.php?vhid=<?php echo htmlentities($result->id);?>"><?php echo htmlentities($result->BrandName);?> , <?php echo htmlentities($result->VehiclesTitle);?></a></h5>
-              <p class="list-price">$<?php echo htmlentities($result->PricePerDay);?></p>
+              <h5><a href="vehical-details.php?vhid=<?php echo htmlentities($result->id);?>"><?php // echo htmlentities($result->BrandName);?>  <?php echo htmlentities($result->VehiclesTitle);?></a></h5>
+              <!-- <p class="list-price">$<?php //echo htmlentities($result->PricePerDay);?></p> -->
           
               <ul class="features_list">
                 
