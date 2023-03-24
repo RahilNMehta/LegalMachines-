@@ -153,7 +153,7 @@ foreach($results as $result)
               <!-- <label class="control-label">Last Update at  -</label> -->
              <?php //echo htmlentities($result->UpdationDate);?>
             <!-- </div> -->
-            <?php // } ?>
+            <?php //} ?>
             <div class="form-group">
               <label class="control-label">Full Name</label>
               <input class="form-control white_bg" name="fullname" value="<?php echo htmlentities($result->FullName);?>" id="fullname" type="text"  required>
