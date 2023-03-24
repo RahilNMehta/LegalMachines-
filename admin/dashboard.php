@@ -35,6 +35,8 @@ if (strlen($_SESSION['alogin']) == 0) {
 		<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 		<!-- Admin Stye -->
 		<link rel="stylesheet" href="css/style.css">
+
+		
 	</head>
 
 	<body>
