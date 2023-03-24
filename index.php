@@ -65,7 +65,7 @@ error_reporting(0);
   <div class="container">
     <div class="section-header text-center">
       <h2>Find the Best <span>CarForYou</span></h2>
-      <p>Unique selection of some of the world's finest automobiles supplied to diverse customer base</p>
+      <p>UNIQUE SELECTION OF SOME OF THE WORLD'S FINEST AUTOMOBILES SUPPLIED TO DIVERSE CUSTOMER BASE</p>
     </div>
     <div class="row"> 
       
