@@ -25,7 +25,7 @@ $contactno=$result->ContactNo;
               <a href="mailto:<?php echo htmlentities($email);?>"><?php echo htmlentities($email);?></a> </div>
             <div class="header_widgets">
               <div class="circle_icon"> <i class="fa fa-phone" aria-hidden="true"></i> </div>
-              <p class="uppercase_text">Service Helpline Call Us: </p>
+              <p class="uppercase_text">Service Helpline Call Us : </p>
               <a href="tel:<?php echo htmlentities($contactno);?>"><?php echo htmlentities($contactno);?></a> </div>
             <div class="social-follow">
             
@@ -73,7 +73,7 @@ foreach($results as $result)
            <?php if($_SESSION['login']){?>
             <li><a href="profile.php">Profile Settings</a></li>
               <li><a href="update-password.php">Update Password</a></li>
-            <li><a href="my-booking.php">My Booking</a></li>
+            <li><a href="my-booking.php">My Bookings</a></li>
             <li><a href="post-testimonial.php">Post a Testimonial</a></li>
           <li><a href="my-testimonials.php">My Testimonial</a></li>
             <li><a href="logout.php">Sign Out</a></li>
