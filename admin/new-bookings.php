@@ -85,26 +85,26 @@ else{
 											<th>Name</th>
 											<th>Booking No.</th>
 											<th>Vehicle</th>
-											<th>From Date</th>
-											<th>To Date</th>
+											<!-- <th>From Date</th>
+											<th>To Date</th> -->
 											<th>Status</th>
 											<th>Posting date</th>
 											<th>Action</th>
 										</tr>
 									</thead>
-									<tfoot>
+									<!-- <tfoot>
 										<tr>
 										<th>#</th>
 										<th>Name</th>
 											<th>Booking No.</th>
 											<th>Vehicle</th>
-											<th>From Date</th>
-											<th>To Date</th>
+											 <th>From Date</th>
+											<th>To Date</th> 
 											<th>Status</th>
 											<th>Posting date</th>
 											<th>Action</th>
 										</tr>
-									</tfoot>
+									</tfoot> -->
 									<tbody>
 
 									<?php 
@@ -123,9 +123,9 @@ foreach($results as $result)
 											<td><?php echo htmlentities($cnt);?></td>
 											<td><?php echo htmlentities($result->FullName);?></td>
 											<td><?php echo htmlentities($result->BookingNumber);?></td>
-											<td><a href="edit-vehicle.php?id=<?php echo htmlentities($result->vid);?>"><?php echo htmlentities($result->BrandName);?> , <?php echo htmlentities($result->VehiclesTitle);?></td>
-											<td><?php echo htmlentities($result->FromDate);?></td>
-											<td><?php echo htmlentities($result->ToDate);?></td>
+											<td><a href="edit-vehicle.php?id=<?php echo htmlentities($result->vid);?>"><?php //echo htmlentities($result->BrandName);?>  <?php echo htmlentities($result->VehiclesTitle);?></td>
+											<!-- <td><?php //echo htmlentities($result->FromDate);?></td>
+											<td><?php //echo htmlentities($result->ToDate);?></td> -->
 											<td><?php 
 if($result->Status==0)
 {

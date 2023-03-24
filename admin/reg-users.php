@@ -100,13 +100,13 @@ $msg="Page data updated  successfully";
 											<th>Contact no</th>
 										<th>DOB</th>
 										<th>Address</th>
-										<th>City</th>
+										<!-- <th>City</th> -->
 										<th>Country</th>
-										<th>Reg Date</th>
+										<!-- <th>Reg Date</th> -->
 										
 										</tr>
 									</thead>
-									<tfoot>
+									<!-- <tfoot>
 										<tr>
 										<th>#</th>
 											<th> Name</th>
@@ -119,7 +119,7 @@ $msg="Page data updated  successfully";
 										<th>Reg Date</th>
 										</tr>
 										</tr>
-									</tfoot>
+									</tfoot> -->
 									<tbody>
 
 									<?php $sql = "SELECT * from  tblusers ";
@@ -138,9 +138,9 @@ foreach($results as $result)
 											<td><?php echo htmlentities($result->ContactNo);?></td>
 	<td><?php echo htmlentities($result->dob);?></td>
 											<td><?php echo htmlentities($result->Address);?></td>
-											<td><?php echo htmlentities($result->City);?></td>
+											<!-- <td><?php //echo htmlentities($result->City);?></td> -->
 											<td><?php echo htmlentities($result->Country);?></td>
-											<td><?php echo htmlentities($result->RegDate);?></td>
+											<!-- <td><?php //echo htmlentities($result->RegDate);?></td> -->
 										</tr>
 										<?php $cnt=$cnt+1; }} ?>
 										

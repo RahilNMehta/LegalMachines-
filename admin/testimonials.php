@@ -118,7 +118,7 @@ $msg="Testimonial Successfully Active";
 											<th>Action</th>
 										</tr>
 									</thead>
-									<tfoot>
+									<!-- <tfoot>
 										<tr>
 										<th>#</th>
 											<th>Name</th>
@@ -127,7 +127,7 @@ $msg="Testimonial Successfully Active";
 											<th>Posting date</th>
 											<th>Action</th>
 										</tr>
-									</tfoot>
+									</tfoot> -->
 									<tbody>
 
 									<?php $sql = "SELECT tblusers.FullName,tbltestimonial.UserEmail,tbltestimonial.Testimonial,tbltestimonial.PostingDate,tbltestimonial.status,tbltestimonial.id from tbltestimonial join tblusers on tblusers.Emailid=tbltestimonial.UserEmail";
