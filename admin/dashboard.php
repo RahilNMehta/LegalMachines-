@@ -35,6 +35,8 @@ if (strlen($_SESSION['alogin']) == 0) {
 		<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 		<!-- Admin Stye -->
 		<link rel="stylesheet" href="css/style.css">
+
+		
 	</head>
 
 	<body>
@@ -65,7 +67,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 														$regusers = $query->rowCount();
 														?>
 														<div class="stat-panel-number h1 "><?php echo htmlentities($regusers); ?></div>
-														<div class="stat-panel-title text-uppercase">Reg Users</div>
+														<div class="stat-panel-title text-uppercase">Registered Users</div>
 													</div>
 												</div>
 												<a href="reg-users.php" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
@@ -83,7 +85,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 														$totalvehicle = $query1->rowCount();
 														?>
 														<div class="stat-panel-number h1 "><?php echo htmlentities($totalvehicle); ?></div>
-														<div class="stat-panel-title text-uppercase">Listed Vehicles</div>
+														<div class="stat-panel-title text-uppercase">Fleet </div>
 													</div>
 												</div>
 												<a href="manage-vehicles.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
@@ -102,7 +104,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 														?>
 
 														<div class="stat-panel-number h1 "><?php echo htmlentities($bookings); ?></div>
-														<div class="stat-panel-title text-uppercase">Total Bookings</div>
+														<div class="stat-panel-title text-uppercase">Test Drive</div>
 													</div>
 												</div>
 												<a href="manage-bookings.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
