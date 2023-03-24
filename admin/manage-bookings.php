@@ -113,15 +113,15 @@ $msg="Booking Successfully Confirmed";
 										<th>#</th>
 											<th>Name</th>
 											<th>Vehicle</th>
-											<th>From Date</th>
-											<th>To Date</th>
+											<!-- <th>From Date</th>
+											<th>To Date</th> -->
 											<th>Message</th>
 											<th>Status</th>
 											<th>Posting date</th>
 											<th>Action</th>
 										</tr>
 									</thead>
-									<tfoot>
+									<!-- <tfoot>
 										<tr>
 										<th>#</th>
 										<th>Name</th>
@@ -133,7 +133,7 @@ $msg="Booking Successfully Confirmed";
 											<th>Posting date</th>
 											<th>Action</th>
 										</tr>
-									</tfoot>
+									</tfoot> -->
 									<tbody>
 
 									<?php $sql = "SELECT tblusers.FullName,tblbrands.BrandName,tblvehicles.VehiclesTitle,tblbooking.FromDate,tblbooking.ToDate,tblbooking.message,tblbooking.VehicleId as vid,tblbooking.Status,tblbooking.PostingDate,tblbooking.id  from tblbooking join tblvehicles on tblvehicles.id=tblbooking.VehicleId join tblusers on tblusers.EmailId=tblbooking.userEmail join tblbrands on tblvehicles.VehiclesBrand=tblbrands.id  ";
@@ -149,8 +149,8 @@ foreach($results as $result)
 											<td><?php echo htmlentities($cnt);?></td>
 											<td><?php echo htmlentities($result->FullName);?></td>
 											<td><a href="edit-vehicle.php?id=<?php echo htmlentities($result->vid);?>"><?php echo htmlentities($result->BrandName);?> , <?php echo htmlentities($result->VehiclesTitle);?></td>
-											<td><?php echo htmlentities($result->FromDate);?></td>
-											<td><?php echo htmlentities($result->ToDate);?></td>
+											<!-- <td><?php //echo htmlentities($result->FromDate);?></td>
+											<td><?php //echo htmlentities($result->ToDate);?></td> -->
 											<td><?php echo htmlentities($result->message);?></td>
 											<td><?php 
 if($result->Status==0)
