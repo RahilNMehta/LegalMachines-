@@ -181,22 +181,7 @@ continue;
 </div>
 </div>
 
-<div class="form-group">
-<label class="col-sm-2 control-label">Price Per Day(in USD)<span style="color:red">*</span></label>
-<div class="col-sm-4">
-<input type="text" name="priceperday" class="form-control" value="<?php echo htmlentities($result->PricePerDay);?>" required>
-</div>
-<label class="col-sm-2 control-label">Select Fuel Type<span style="color:red">*</span></label>
-<div class="col-sm-4">
-<select class="selectpicker" name="fueltype" required>
-<option value="<?php echo htmlentities($result->FuelType);?>"> <?php echo htmlentities($result->FuelType);?> </option>
 
-<option value="Petrol">Petrol</option>
-<option value="Diesel">Diesel</option>
-<option value="CNG">CNG</option>
-</select>
-</div>
-</div>
 
 
 <div class="form-group">
@@ -209,6 +194,24 @@ continue;
 <input type="text" name="seatingcapacity" class="form-control" value="<?php echo htmlentities($result->SeatingCapacity);?>" required>
 </div>
 </div>
+
+<div class="form-group">
+<!-- <label class="col-sm-2 control-label">Price Per Day(in USD)<span style="color:red">*</span></label>
+<div class="col-sm-4">
+<input type="text" name="priceperday" class="form-control" value="<?php echo htmlentities($result->PricePerDay);?>" required>
+</div> -->
+<label class="col-sm-2 control-label">Select Fuel Type<span style="color:red">*</span></label>
+<div class="col-sm-4">
+<select class="selectpicker" name="fueltype" required>
+<option value="<?php echo htmlentities($result->FuelType);?>"> <?php echo htmlentities($result->FuelType);?> </option>
+
+<option value="Petrol">Petrol</option>
+<option value="Diesel">Diesel</option>
+<!-- <option value="CNG">CNG</option> -->
+</select>
+</div>
+</div>
+
 <div class="hr-dashed"></div>								
 <div class="form-group">
 <div class="col-sm-12">
