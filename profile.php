@@ -12,7 +12,7 @@ if(isset($_POST['updateprofile']))
 $name=$_POST['fullname'];
 $mobileno=$_POST['mobilenumber'];
 $dob=$_POST['dob'];
-$adress=$_POST['address'];
+$address=$_POST['address'];
 // $city=$_POST['city'];
 $country=$_POST['country'];
 $email=$_SESSION['login'];
