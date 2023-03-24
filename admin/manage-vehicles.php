@@ -96,13 +96,13 @@ $msg="Vehicle  record deleted successfully";
 										<th>#</th>
 											<th>Vehicle Title</th>
 											<th>Brand </th>
-											<th>Price Per day</th>
+											<!-- <th>Price Per day</th> -->
 											<th>Fuel Type</th>
 											<th>Model Year</th>
 											<th>Action</th>
 										</tr>
 									</thead>
-									<tfoot>
+									<!-- <tfoot>
 										<tr>
 										<th>#</th>
 										<th>Vehicle Title</th>
@@ -113,7 +113,7 @@ $msg="Vehicle  record deleted successfully";
 											<th>Action</th>
 										</tr>
 										</tr>
-									</tfoot>
+									</tfoot> -->
 									<tbody>
 
 <?php $sql = "SELECT tblvehicles.VehiclesTitle,tblbrands.BrandName,tblvehicles.PricePerDay,tblvehicles.FuelType,tblvehicles.ModelYear,tblvehicles.id from tblvehicles join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand";
@@ -129,7 +129,7 @@ foreach($results as $result)
 											<td><?php echo htmlentities($cnt);?></td>
 											<td><?php echo htmlentities($result->VehiclesTitle);?></td>
 											<td><?php echo htmlentities($result->BrandName);?></td>
-											<td><?php echo htmlentities($result->PricePerDay);?></td>
+											<!-- <td><?php //echo htmlentities($result->PricePerDay);?></td> -->
 											<td><?php echo htmlentities($result->FuelType);?></td>
 												<td><?php echo htmlentities($result->ModelYear);?></td>
 		<td><a href="edit-vehicle.php?id=<?php echo $result->id;?>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
