@@ -37,7 +37,7 @@ $contactno=$result->ContactNo;
 <?php }
 else{ 
 
-echo "Welcome To Car rental portal";
+echo "Welcome To Legal Machines";
  } ?>
           </div>
         </div>
