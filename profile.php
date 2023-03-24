@@ -13,16 +13,16 @@ $name=$_POST['fullname'];
 $mobileno=$_POST['mobilenumber'];
 $dob=$_POST['dob'];
 $adress=$_POST['address'];
-$city=$_POST['city'];
+// $city=$_POST['city'];
 $country=$_POST['country'];
 $email=$_SESSION['login'];
-$sql="update tblusers set FullName=:name,ContactNo=:mobileno,dob=:dob,Address=:adress,City=:city,Country=:country where EmailId=:email";
+$sql="update tblusers set FullName=:name,ContactNo=:mobileno,dob=:dob,Address=:address,Country=:country where EmailId=:email";
 $query = $dbh->prepare($sql);
 $query->bindParam(':name',$name,PDO::PARAM_STR);
 $query->bindParam(':mobileno',$mobileno,PDO::PARAM_STR);
 $query->bindParam(':dob',$dob,PDO::PARAM_STR);
-$query->bindParam(':adress',$adress,PDO::PARAM_STR);
-$query->bindParam(':city',$city,PDO::PARAM_STR);
+$query->bindParam(':address',$address,PDO::PARAM_STR);
+// $query->bindParam(':city',$city,PDO::PARAM_STR);
 $query->bindParam(':country',$country,PDO::PARAM_STR);
 $query->bindParam(':email',$email,PDO::PARAM_STR);
 $query->execute();
@@ -57,11 +57,11 @@ $msg="Profile Updated Successfully";
 		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/pink.css" title="pink" media="all" />
 		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/green.css" title="green" media="all" />
 		<link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/purple.css" title="purple" media="all" />
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
+<!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/favicon-icon/apple-touch-icon-114-precomposed.html">
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/favicon-icon/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed" href="assets/images/favicon-icon/apple-touch-icon-57-precomposed.png">
-<link rel="shortcut icon" href="assets/images/favicon-icon/favicon.png">
+<link rel="apple-touch-icon-precomposed" href="assets/images/favicon-icon/apple-touch-icon-57-precomposed.png"> -->
+<link rel="shortcut icon" href="assets/images/LM.png">
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet"> 
  <style>
     .errorWrap {
@@ -123,37 +123,37 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 { ?>
 <section class="user_profile inner_pages">
-  <div class="container">
-    <div class="user_profile_info gray-bg padding_4x4_40">
+   <div class="container">
+  <!--  <div class="user_profile_info gray-bg padding_4x4_40">
       <div class="upload_user_logo"> <img src="assets/images/dealer-logo.jpg" alt="image">
-      </div>
+      </div> -->
 
-      <div class="dealer_info">
-        <h5><?php echo htmlentities($result->FullName);?></h5>
-        <p><?php echo htmlentities($result->Address);?><br>
-          <?php echo htmlentities($result->City);?>&nbsp;<?php echo htmlentities($result->Country);?></p>
-      </div>
-    </div>
+      <!-- <div class="dealer_info"> -->
+        <!-- <h5><?php //echo htmlentities($result->FullName);?></h5> -->
+        <!-- <p><?php //echo htmlentities($result->Address);?><br> -->
+          <!-- <?php //echo htmlentities($result->City);?>&nbsp;<?php //echo htmlentities($result->Country);?></p> -->
+      <!-- </div> -->
+    <!-- </div> -->
   
     <div class="row">
       <div class="col-md-3 col-sm-3">
         <?php include('includes/sidebar.php');?>
       <div class="col-md-6 col-sm-8">
         <div class="profile_wrap">
-          <h5 class="uppercase underline">Genral Settings</h5>
+          <h5 class="uppercase underline">General Settings</h5>
           <?php  
          if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
           <form  method="post">
-           <div class="form-group">
-              <label class="control-label">Reg Date -</label>
-             <?php echo htmlentities($result->RegDate);?>
-            </div>
-             <?php if($result->UpdationDate!=""){?>
-            <div class="form-group">
-              <label class="control-label">Last Update at  -</label>
-             <?php echo htmlentities($result->UpdationDate);?>
-            </div>
-            <?php } ?>
+           <!-- <div class="form-group"> -->
+              <!-- <label class="control-label">Reg Date -</label> -->
+             <?php //echo htmlentities($result->RegDate);?>
+            <!-- </div> -->
+             <!-- <?php //if($result->UpdationDate!=""){?> -->
+            <!-- <div class="form-group"> -->
+              <!-- <label class="control-label">Last Update at  -</label> -->
+             <?php //echo htmlentities($result->UpdationDate);?>
+            <!-- </div> -->
+            <?php // } ?>
             <div class="form-group">
               <label class="control-label">Full Name</label>
               <input class="form-control white_bg" name="fullname" value="<?php echo htmlentities($result->FullName);?>" id="fullname" type="text"  required>
@@ -171,17 +171,17 @@ foreach($results as $result)
               <input class="form-control white_bg" value="<?php echo htmlentities($result->dob);?>" name="dob" placeholder="dd/mm/yyyy" id="birth-date" type="text" >
             </div>
             <div class="form-group">
-              <label class="control-label">Your Address</label>
+              <label class="control-label">Address</label>
               <textarea class="form-control white_bg" name="address" rows="4" ><?php echo htmlentities($result->Address);?></textarea>
             </div>
             <div class="form-group">
               <label class="control-label">Country</label>
-              <input class="form-control white_bg"  id="country" name="country" value="<?php echo htmlentities($result->City);?>" type="text">
+              <input class="form-control white_bg"  id="country" name="country" value="<?php echo htmlentities($result->Country);?>" type="text">
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label class="control-label">City</label>
-              <input class="form-control white_bg" id="city" name="city" value="<?php echo htmlentities($result->City);?>" type="text">
-            </div>
+              <input class="form-control white_bg" id="city" name="city" value="<?php //echo htmlentities($result->City);?>" type="text">
+            </div> -->
             <?php }} ?>
            
             <div class="form-group">
@@ -195,7 +195,7 @@ foreach($results as $result)
 </section>
 <!--/Profile-setting--> 
 
-<<!--Footer -->
+<!--Footer -->
 <?php include('includes/footer.php');?>
 <!-- /Footer--> 
 
