@@ -32,7 +32,6 @@ if (strlen($_SESSION['login']) == 0) {
   <html lang="en">
 
   <head>
-
     <title>Legal Machines - Update Password</title>
     <!--Bootstrap -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
@@ -58,10 +57,6 @@ if (strlen($_SESSION['login']) == 0) {
     <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/purple.css" title="purple" media="all" />
 
     <!-- Fav and touch icons -->
-    <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/favicon-icon/apple-touch-icon-114-precomposed.html">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/favicon-icon/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed" href="assets/images/favicon-icon/apple-touch-icon-57-precomposed.png"> -->
     <link rel="shortcut icon" href="assets/images/LM.png">
     <!-- Google-Font-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -97,12 +92,6 @@ if (strlen($_SESSION['login']) == 0) {
   </head>
 
   <body>
-
-    <!-- Start Switcher -->
-    <?php //include('includes/colorswitcher.php');
-    ?>
-    <!-- /Switcher -->
-
     <!--Header-->
     <?php include('includes/header.php'); ?>
     <!-- /Header -->
@@ -136,29 +125,14 @@ if (strlen($_SESSION['login']) == 0) {
       foreach ($results as $result) { ?>
         <section class="user_profile inner_pages">
           <div class="container">
-            <!-- <div class="user_profile_info gray-bg padding_4x4_40">
-      <div class="upload_user_logo"> <img src="assets/images/dealer-logo.jpg" alt="image">
-      </div>
-
-      <div class="dealer_info">
-        <h5><?php //echo htmlentities($result->FullName);
-            ?></h5>
-        <p><?php //echo htmlentities($result->Address);
-            ?><br>
-          <?php //echo htmlentities($result->City);
-          ?>&nbsp;<?php //echo htmlentities($result->Country);
-                                                            ?></p>
-      </div> 
-    </div> -->
         <?php }
     } ?>
-
         <div class="row">
           <div class="col-md-3 col-sm-3">
             <?php include('includes/sidebar.php'); ?>
             <div class="col-md-6 col-sm-8">
               <div class="profile_wrap">
-              <h5 class="uppercase underline">Update Password</h5>
+                <h5 class="uppercase underline">Update Password</h5>
                 <form name="chngpwd" method="post" onSubmit="return valid();">
                   <?php if ($error) { ?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } else if ($msg) { ?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php } ?>
                   <div class="form-group">
@@ -173,7 +147,6 @@ if (strlen($_SESSION['login']) == 0) {
                     <label class="control-label">Confirm Password</label>
                     <input class="form-control white_bg" id="confirmpassword" type="password" name="confirmpassword" required>
                   </div>
-
                   <div class="form-group">
                     <input type="submit" value="Update" name="updatepass" id="submit" class="btn btn-block">
                   </div>
@@ -185,38 +158,37 @@ if (strlen($_SESSION['login']) == 0) {
         </section>
         <!--/Profile-setting-->
 
-        <<!--Footer -->
-          <?php include('includes/footer.php'); ?>
-          <!-- /Footer-->
+        <!--Footer -->
+        <?php include('includes/footer.php'); ?>
+        <!-- /Footer-->
 
-          <!--Back to top-->
-          <div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
-          <!--/Back to top-->
+        <!--Back to top-->
+        <div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
+        <!--/Back to top-->
 
-          <!--Login-Form -->
-          <?php include('includes/login.php'); ?>
-          <!--/Login-Form -->
+        <!--Login-Form -->
+        <?php include('includes/login.php'); ?>
+        <!--/Login-Form -->
 
-          <!--Register-Form -->
-          <?php include('includes/registration.php'); ?>
+        <!--Register-Form -->
+        <?php include('includes/registration.php'); ?>
+        <!--/Register-Form -->
 
-          <!--/Register-Form -->
+        <!--Forgot-password-Form -->
+        <?php include('includes/forgotpassword.php'); ?>
+        <!--/Forgot-password-Form -->
 
-          <!--Forgot-password-Form -->
-          <?php include('includes/forgotpassword.php'); ?>
-          <!--/Forgot-password-Form -->
-
-          <!-- Scripts -->
-          <script src="assets/js/jquery.min.js"></script>
-          <script src="assets/js/bootstrap.min.js"></script>
-          <script src="assets/js/interface.js"></script>
-          <!--Switcher-->
-          <script src="assets/switcher/js/switcher.js"></script>
-          <!--bootstrap-slider-JS-->
-          <script src="assets/js/bootstrap-slider.min.js"></script>
-          <!--Slider-JS-->
-          <script src="assets/js/slick.min.js"></script>
-          <script src="assets/js/owl.carousel.min.js"></script>
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/interface.js"></script>
+        <!--Switcher-->
+        <script src="assets/switcher/js/switcher.js"></script>
+        <!--bootstrap-slider-JS-->
+        <script src="assets/js/bootstrap-slider.min.js"></script>
+        <!--Slider-JS-->
+        <script src="assets/js/slick.min.js"></script>
+        <script src="assets/js/owl.carousel.min.js"></script>
 
   </body>
 
