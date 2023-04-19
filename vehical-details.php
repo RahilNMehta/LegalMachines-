@@ -125,13 +125,33 @@ if (isset($_POST['submit'])) {
                     <h5><?php echo htmlentities($result->ModelYear); ?></h5>
                     <p>Reg. Year</p>
                   </li>
-                  <li> <i class="fa fa-cogs" aria-hidden="true"></i>
+                  <li> <i class="fa fa-dashboard" aria-hidden="true"></i>
                     <h5><?php echo htmlentities($result->FuelType); ?></h5>
                     <p>Fuel Type</p>
                   </li>
-                  <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
+                  <li> <i class="fa fa-group" aria-hidden="true"></i>
                     <h5><?php echo htmlentities($result->SeatingCapacity); ?></h5>
                     <p>Seats</p>
+                  </li>
+                  <li> <i class="fa fa-steam" aria-hidden="true"></i>
+                    <h5><?php echo htmlentities($result->Engine); ?></h5>
+                    <p>Engine</p>
+                  </li>
+                  <li> <i class="fa fa-ge" aria-hidden="true"></i>
+                    <h5><?php echo htmlentities($result->PeakTorque); ?></h5>
+                    <p>Peak Torque</p>
+                  </li>
+                  <li> <i class="fa fa-flash" aria-hidden="true"></i>
+                    <h5><?php echo htmlentities($result->PeakPower); ?></h5>
+                    <p>Peak Power</p>
+                  </li>
+                  <li> <i class="fa fa-gears" aria-hidden="true"></i>
+                    <h5><?php echo htmlentities($result->Transmission); ?></h5>
+                    <p>Transmission</p>
+                  </li>
+                  <li> <i class="fa fa-inr" aria-hidden="true"></i>
+                    <h5><?php echo htmlentities($result->Price); ?></h5>
+                    <p>Rupees</p>
                   </li>
                 </ul>
               </div>

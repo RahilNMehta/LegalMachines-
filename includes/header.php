@@ -20,22 +20,13 @@
 
             <div class="header_widgets">
               <div class="circle_icon"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>
-              <p class="uppercase_text">For Support Mail us : </p>
+              <p class="uppercase_text">For Support Mail us: </p>
               <a href="mailto:<?php echo htmlentities($email); ?>"><?php echo htmlentities($email); ?></a>
-            </div>
-            <div class="header_widgets">
-              <div class="circle_icon"> <i class="fa fa-phone" aria-hidden="true"></i> </div>
-              <p class="uppercase_text">Service Helpline Call Us : </p>
-              <a href="tel:<?php echo htmlentities($contactno); ?>"><?php echo htmlentities($contactno); ?></a>
-            </div>
-            <div class="social-follow">
-
             </div>
             <?php if (strlen($_SESSION['login']) == 0) {
             ?>
               <div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Login / Register</a> </div>
             <?php } else {
-
               echo "Welcome To Legal Machines";
             } ?>
           </div>
@@ -94,7 +85,6 @@
 
           <li><a href="page.php?type=aboutus">About Us</a></li>
           <li><a href="car-listing.php">Cars</a>
-            <!-- <li><a href="page.php?type=faqs">FAQs</a></li> -->
           <li><a href="contact-us.php">Contact Us</a></li>
 
         </ul>
