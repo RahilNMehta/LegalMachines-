@@ -3,31 +3,35 @@ session_start();
 include('includes/config.php');
 error_reporting(0);
 if (isset($_POST['submit'])) {
-  $fromdate = $_POST['fromdate'];
-  $todate = $_POST['todate'];
+  //$fromdate = $_POST['fromdate'];
+  //$todate = $_POST['todate'];
   $message = $_POST['message'];
   $useremail = $_SESSION['login'];
   $status = 0;
   $vhid = $_GET['vhid'];
   $bookingno = mt_rand(100000000, 999999999);
-  $ret = "SELECT * FROM tblbooking where (:fromdate BETWEEN date(FromDate) and date(ToDate) || :todate BETWEEN date(FromDate) and date(ToDate) || date(FromDate) BETWEEN :fromdate and :todate) and VehicleId=:vhid";
+  //$ret = "SELECT * FROM tblbooking where (:fromdate BETWEEN date(FromDate) and date(ToDate) || :todate BETWEEN date(FromDate) and date(ToDate) || date(FromDate) BETWEEN :fromdate and :todate) and VehicleId=:vhid";
+  $ret = "SELECT * FROM tblbooking where VehicleId=:vhid";
   $query1 = $dbh->prepare($ret);
   $query1->bindParam(':vhid', $vhid, PDO::PARAM_STR);
-  $query1->bindParam(':fromdate', $fromdate, PDO::PARAM_STR);
-  $query1->bindParam(':todate', $todate, PDO::PARAM_STR);
+  //$query1->bindParam(':fromdate', $fromdate, PDO::PARAM_STR);
+  //$query1->bindParam(':todate', $todate, PDO::PARAM_STR);
   $query1->execute();
   $results1 = $query1->fetchAll(PDO::FETCH_OBJ);
 
   if ($query1->rowCount() == 0) {
-    $sql = "INSERT INTO  tblbooking(BookingNumber,userEmail,VehicleId,FromDate,ToDate,message,Status) VALUES(:bookingno,:useremail,:vhid,:fromdate,:todate,:message,:status)";
+   // $sql = "INSERT INTO  tblbooking(BookingNumber,userEmail,VehicleId,FromDate,ToDate,message,Status) VALUES(:bookingno,:useremail,:vhid,:fromdate,:todate,:message,:status)";
+   $sql = "INSERT INTO  tblbooking(BookingNumber,userEmail,VehicleId,message,Status,PostingDate) VALUES(:bookingno,:useremail,:vhid,:message,:status,:PostingDate)";
     $query = $dbh->prepare($sql);
     $query->bindParam(':bookingno', $bookingno, PDO::PARAM_STR);
     $query->bindParam(':useremail', $useremail, PDO::PARAM_STR);
     $query->bindParam(':vhid', $vhid, PDO::PARAM_STR);
-    $query->bindParam(':fromdate', $fromdate, PDO::PARAM_STR);
-    $query->bindParam(':todate', $todate, PDO::PARAM_STR);
+    //$query->bindParam(':fromdate', $fromdate, PDO::PARAM_STR);
+    //$query->bindParam(':todate', $todate, PDO::PARAM_STR);
     $query->bindParam(':message', $message, PDO::PARAM_STR);
     $query->bindParam(':status', $status, PDO::PARAM_STR);
+    $query->bindParam(':PostingDate', $PostingDate, PDO::PARAM_STR);
+    
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
@@ -141,7 +145,7 @@ if (isset($_POST['submit'])) {
                     <h5><?php echo htmlentities($result->PeakTorque); ?></h5>
                     <p>Peak Torque</p>
                   </li>
-                  <li> <i class="fa fa-flash" aria-hidden="true"></i>
+                  <li><i class="fa fa-flash" aria-hidden="true"></i>
                     <h5><?php echo htmlentities($result->PeakPower); ?></h5>
                     <p>Peak Power</p>
                   </li>
@@ -321,7 +325,8 @@ if (isset($_POST['submit'])) {
             <div class="row">
               <?php
               $bid = $_SESSION['brndid'];
-              $sql = "SELECT tblvehicles.VehiclesTitle,tblbrands.BrandName,tblvehicles.PricePerDay,tblvehicles.FuelType,tblvehicles.ModelYear,tblvehicles.id,tblvehicles.SeatingCapacity,tblvehicles.VehiclesOverview,tblvehicles.Vimage1 from tblvehicles join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand where tblvehicles.VehiclesBrand=:bid";
+              //$sql = "SELECT tblvehicles.VehiclesTitle,tblbrands.BrandName,tblvehicles.PricePerDay,tblvehicles.FuelType,tblvehicles.ModelYear,tblvehicles.id,tblvehicles.SeatingCapacity,tblvehicles.VehiclesOverview,tblvehicles.Vimage1 from tblvehicles join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand where tblvehicles.VehiclesBrand=:bid";
+              $sql = "SELECT tblvehicles.VehiclesTitle,tblbrands.BrandName,tblvehicles.Price,tblvehicles.FuelType,tblvehicles.ModelYear,tblvehicles.id,tblvehicles.SeatingCapacity,tblvehicles.VehiclesOverview,tblvehicles.Vimage1 from tblvehicles join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand where tblvehicles.VehiclesBrand=:bid";
               $query = $dbh->prepare($sql);
               $query->bindParam(':bid', $bid, PDO::PARAM_STR);
               $query->execute();
