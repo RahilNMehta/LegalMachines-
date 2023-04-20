@@ -17,7 +17,5 @@
                 <li><a href="canceled-bookings.php">Cancelled</a></li>
             </ul>
         </li>
-        <li><a href="update-contactinfo.php"><i class="fa fa-files-o"></i> Update Contact Info</a></li>
-
     </ul>
 </nav>
