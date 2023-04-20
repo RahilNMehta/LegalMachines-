@@ -91,7 +91,6 @@ if (strlen($_SESSION['login']) == 0) {
                   $query->bindParam(':useremail', $useremail, PDO::PARAM_STR);
                   $query->execute();
                   $results = $query->fetchAll(PDO::FETCH_OBJ);
-
                   if ($cnt = $query->rowCount() > 0) {
                     foreach ($results as $result) { ?>
                       <li>

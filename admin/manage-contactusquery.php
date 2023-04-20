@@ -8,7 +8,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 	if (isset($_REQUEST['eid'])) {
 		$eid = intval($_GET['eid']);
 		$status = 1;
-		$sql = "UPDATE tblcontactusquery SET status=:status WHERE  id=:eid";
+		$sql = "UPDATE tblcontactusquery SET status=:status WHERE id=:eid";
 		$query = $dbh->prepare($sql);
 		$query->bindParam(':status', $status, PDO::PARAM_STR);
 		$query->bindParam(':eid', $eid, PDO::PARAM_STR);
@@ -64,27 +64,22 @@ if (strlen($_SESSION['alogin']) == 0) {
 				box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
 			}
 		</style>
-
 	</head>
 
 	<body>
 		<?php include('includes/header.php'); ?>
-
 		<div class="ts-main-content">
 			<?php include('includes/leftbar.php'); ?>
 			<div class="content-wrapper">
 				<div class="container-fluid">
-
 					<div class="row">
 						<div class="col-md-12">
-
 							<h2 class="page-title">Manage Contact Us Queries</h2>
 
 							<!-- Zero Configuration Table -->
 							<div class="panel panel-default">
 								<div class="panel-heading">User queries</div>
 								<div class="panel-body">
-
 									<table id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 										<thead>
 											<tr>
@@ -98,14 +93,13 @@ if (strlen($_SESSION['alogin']) == 0) {
 											</tr>
 										</thead>
 										<tbody>
-
-											<?php $sql = "SELECT * from  tblcontactusquery ";
+											<?php $sql = "SELECT * from  tblcontactusquery";
 											$query = $dbh->prepare($sql);
 											$query->execute();
 											$results = $query->fetchAll(PDO::FETCH_OBJ);
 											$cnt = 1;
 											if ($query->rowCount() > 0) {
-												foreach ($results as $result) {				?>
+												foreach ($results as $result) { ?>
 													<tr>
 														<td><?php echo htmlentities($cnt); ?></td>
 														<td><?php echo htmlentities($result->name); ?></td>
@@ -116,7 +110,6 @@ if (strlen($_SESSION['alogin']) == 0) {
 														<?php if ($result->status == 1) {
 														?><td>Read</td>
 														<?php } else { ?>
-
 															<td><a href="manage-conactusquery.php?eid=<?php echo htmlentities($result->id); ?>" onclick="return confirm('Do you really want to read')">Pending</a>
 															</td>
 														<?php } ?>
@@ -124,20 +117,12 @@ if (strlen($_SESSION['alogin']) == 0) {
 											<?php $cnt = $cnt + 1;
 												}
 											} ?>
-
 										</tbody>
 									</table>
-
-
-
 								</div>
 							</div>
-
-
-
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>

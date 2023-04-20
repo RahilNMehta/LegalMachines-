@@ -61,7 +61,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 		<script type="text/javascript">
 			function valid() {
 				if (document.chngpwd.newpassword.value != document.chngpwd.confirmpassword.value) {
-					alert("New Password and Confirm Password Field do not match  !!");
+					alert("New Password and Confirm Password Field do not match!!");
 					document.chngpwd.confirmpassword.focus();
 					return false;
 				}
@@ -87,8 +87,6 @@ if (strlen($_SESSION['alogin']) == 0) {
 				box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
 			}
 		</style>
-
-
 	</head>
 
 	<body>
@@ -106,7 +104,6 @@ if (strlen($_SESSION['alogin']) == 0) {
 										<div class="panel-heading">Form fields</div>
 										<div class="panel-body">
 											<form method="post" name="chngpwd" class="form-horizontal" onSubmit="return valid();">
-
 												<?php if ($error) { ?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } else if ($msg) { ?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php } ?>
 												<div class="form-group">
 													<label class="col-sm-4 control-label">Current Password</label>
@@ -134,7 +131,6 @@ if (strlen($_SESSION['alogin']) == 0) {
 
 												<div class="form-group">
 													<div class="col-sm-8 col-sm-offset-4">
-
 														<button class="btn btn-primary" name="submit" type="submit">Save Changes</button>
 													</div>
 												</div>

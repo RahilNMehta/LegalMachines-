@@ -81,7 +81,6 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="row">
         <div class="col-md-3 col-sm-3">
           <?php include('includes/sidebar.php'); ?>
-
           <div class="col-md-8 col-sm-8">
             <div class="profile_wrap">
               <h5 class="uppercase underline">My Bookings </h5>
@@ -89,9 +88,7 @@ if (strlen($_SESSION['login']) == 0) {
                 <ul class="vehicle_listing">
                   <?php
                   $useremail = $_SESSION['login'];
-                  //$sql = "SELECT tblvehicles.Vimage1 as Vimage1,tblvehicles.VehiclesTitle,tblvehicles.id as vid,tblbrands.BrandName,tblbooking.FromDate,tblbooking.ToDate,tblbooking.message,tblbooking.Status,tblvehicles.PricePerDay,DATEDIFF(tblbooking.ToDate,tblbooking.FromDate) as totaldays,tblbooking.BookingNumber  from tblbooking join tblvehicles on tblbooking.VehicleId=tblvehicles.id join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand where tblbooking.userEmail=:useremail order by tblbooking.id desc";
-                  $sql = "SELECT tblvehicles.Vimage1 as Vimage1,tblvehicles.VehiclesTitle,tblvehicles.id as vid,tblbrands.BrandName,tblbooking.message,tblbooking.Status,tblvehicles.Price,tblbooking.BookingNumber,tblbooking.PostingDate  from tblbooking join tblvehicles on tblbooking.VehicleId=tblvehicles.id join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand where tblbooking.userEmail=:useremail order by tblbooking.id desc";
-                  
+                  $sql = "SELECT tblvehicles.Vimage1 as Vimage1,tblvehicles.VehiclesTitle,tblvehicles.id as vid,tblbrands.BrandName,tblbooking.message,tblbooking.Status,tblvehicles.Price,tblbooking.BookingNumber,tblbooking.PostingDate from tblbooking join tblvehicles on tblbooking.VehicleId=tblvehicles.id join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand where tblbooking.userEmail=:useremail order by tblbooking.id desc";
                   $query = $dbh->prepare($sql);
                   $query->bindParam(':useremail', $useremail, PDO::PARAM_STR);
                   $query->execute();
@@ -112,21 +109,17 @@ if (strlen($_SESSION['login']) == 0) {
                           <div class="vehicle_status"> <a href="#" class="btn outline btn-xs active-btn">Confirmed</a>
                             <div class="clearfix"></div>
                           </div>
-
                         <?php } else if ($result->Status == 2) { ?>
                           <div class="vehicle_status"> <a href="#" class="btn outline btn-xs">Cancelled</a>
                             <div class="clearfix"></div>
                           </div>
-
                         <?php } else { ?>
                           <div class="vehicle_status"> <a href="#" class="btn outline btn-xs">Not Confirmed yet</a>
                             <div class="clearfix"></div>
                           </div>
                         <?php } ?>
                       </li>
-
                       <?php echo htmlentities($result->BrandName); ?>
-
                       <hr />
                     <?php }
                   } else { ?>

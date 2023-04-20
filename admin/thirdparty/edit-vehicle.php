@@ -5,7 +5,6 @@ include('../includes/config.php');
 if (strlen($_SESSION['alogin']) == 0) {
     header('location:index.php');
 } else {
-
     if (isset($_POST['submit'])) {
         $vehicletitle = $_POST['vehicletitle'];
         $brand = $_POST['brandname'];
@@ -58,7 +57,6 @@ if (strlen($_SESSION['alogin']) == 0) {
 
         $msg = "Data updated successfully";
     }
-
 ?>
     <!doctype html>
     <html lang="en" class="no-js">

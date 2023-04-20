@@ -5,7 +5,6 @@ include('includes/config.php');
 if (strlen($_SESSION['alogin']) == 0) {
 	header('location:index.php');
 } else {
-
 ?>
 
 	<!doctype html>
@@ -94,7 +93,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 											$results = $query->fetchAll(PDO::FETCH_OBJ);
 											$cnt = 1;
 											if ($query->rowCount() > 0) {
-												foreach ($results as $result) {?>
+												foreach ($results as $result) { ?>
 													<tr>
 														<td><?php echo htmlentities($cnt); ?></td>
 														<td><?php echo htmlentities($result->FullName); ?></td>

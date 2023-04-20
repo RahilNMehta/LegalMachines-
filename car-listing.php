@@ -115,7 +115,6 @@ error_reporting(0);
                 <div class="form-group select">
                   <select class="form-control" name="brand">
                     <option>Select Brand</option>
-
                     <?php $sql = "SELECT * from  tblbrands ";
                     $query = $dbh->prepare($sql);
                     $query->execute();

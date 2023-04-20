@@ -23,7 +23,6 @@ if (strlen($_SESSION['login']) == 0) {
     $query->execute();
     $msg = "Profile Updated Successfully";
   }
-
 ?>
   <!DOCTYPE HTML>
   <html lang="en">
@@ -144,7 +143,6 @@ if (strlen($_SESSION['login']) == 0) {
                       </div>
                   <?php }
               } ?>
-
                   <div class="form-group">
                     <button type="submit" name="updateprofile" class="btn">Save Changes <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
                   </div>

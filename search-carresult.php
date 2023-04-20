@@ -121,7 +121,6 @@ error_reporting(0);
                 <div class="form-group select">
                   <select class="form-control">
                     <option>Select Brand</option>
-
                     <?php $sql = "SELECT * from  tblbrands ";
                     $query = $dbh->prepare($sql);
                     $query->execute();
@@ -132,7 +131,6 @@ error_reporting(0);
                         <option value="<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->BrandName); ?></option>
                     <?php }
                     } ?>
-
                   </select>
                 </div>
                 <div class="form-group select">

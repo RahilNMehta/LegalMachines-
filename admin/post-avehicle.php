@@ -141,7 +141,6 @@ if (strlen($_SESSION['alogin']) == 0) {
 									<div class="panel panel-default">
 										<div class="panel-heading">Basic Info</div>
 										<?php if ($error) { ?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } else if ($msg) { ?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php } ?>
-
 										<div class="panel-body">
 											<form method="post" class="form-horizontal" enctype="multipart/form-data">
 												<div class="form-group">

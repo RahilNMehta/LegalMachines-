@@ -68,8 +68,6 @@ if (strlen($_SESSION['alogin']) == 0) {
 				box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
 			}
 		</style>
-
-
 	</head>
 
 	<body>
@@ -78,20 +76,15 @@ if (strlen($_SESSION['alogin']) == 0) {
 			<?php include('includes/leftbar.php'); ?>
 			<div class="content-wrapper">
 				<div class="container-fluid">
-
 					<div class="row">
 						<div class="col-md-12">
-
 							<h2 class="page-title">Update Contact Info</h2>
-
 							<div class="row">
 								<div class="col-md-10">
 									<div class="panel panel-default">
 										<div class="panel-heading">Form fields</div>
 										<div class="panel-body">
 											<form method="post" name="chngpwd" class="form-horizontal" onSubmit="return valid();">
-
-
 												<?php if ($error) { ?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } else if ($msg) { ?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php } ?>
 												<?php $sql = "SELECT * from  tblcontactusinfo ";
 												$query = $dbh->prepare($sql);
@@ -99,8 +92,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 												$results = $query->fetchAll(PDO::FETCH_OBJ);
 												$cnt = 1;
 												if ($query->rowCount() > 0) {
-													foreach ($results as $result) {				?>
-
+													foreach ($results as $result) { ?>
 														<div class="form-group">
 															<label class="col-sm-4 control-label"> Address</label>
 															<div class="col-sm-8">
@@ -122,31 +114,18 @@ if (strlen($_SESSION['alogin']) == 0) {
 												<?php }
 												} ?>
 												<div class="hr-dashed"></div>
-
-
-
-
 												<div class="form-group">
 													<div class="col-sm-8 col-sm-offset-4">
-
 														<button class="btn btn-primary" name="submit" type="submit">Update</button>
 													</div>
 												</div>
-
 											</form>
-
 										</div>
 									</div>
 								</div>
-
 							</div>
-
-
-
 						</div>
 					</div>
-
-
 				</div>
 			</div>
 		</div>

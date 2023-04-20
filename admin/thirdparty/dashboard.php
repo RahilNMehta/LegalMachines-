@@ -5,14 +5,13 @@ include('../includes/config.php');
 if (strlen($_SESSION['alogin']) == 0) {
     header('location:index.php');
 } else {
-
     if (isset($_REQUEST['del'])) {
-		$delid = intval($_GET['del']);
-		$sql = "delete from tblvehicles WHERE id=:delid";
-		$query = $dbh->prepare($sql);
-		$query->bindParam(':delid', $delid, PDO::PARAM_STR);
-		$query->execute();
-	}
+        $delid = intval($_GET['del']);
+        $sql = "delete from tblvehicles WHERE id=:delid";
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':delid', $delid, PDO::PARAM_STR);
+        $query->execute();
+    }
 ?>
     <!doctype html>
     <html lang="en" class="no-js">
@@ -43,17 +42,14 @@ if (strlen($_SESSION['alogin']) == 0) {
         <link rel="stylesheet" href="../css/awesome-bootstrap-checkbox.css">
         <!-- Admin Stye -->
         <link rel="stylesheet" href="../css/style.css">
-
     </head>
 
     <body>
         <?php include('../includes/header.php'); ?>
-
         <div class="ts-main-content">
             <?php include('includes/leftbar.php'); ?>
             <div class="content-wrapper">
                 <div class="container-fluid">
-
                     <div class="row">
                         <div class="col-md-12">
                             <h2 class="page-title">Dashboard</h2>
@@ -71,7 +67,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             </tr>
                                         </thead>
                                         <tbody>
-
                                             <?php $sql = "SELECT id,VehiclesTitle,FuelType,ModelYear from tblvehicles where VehiclesBrand=11";
                                             $query = $dbh->prepare($sql);
                                             $query->execute();
@@ -91,7 +86,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <?php $cnt = $cnt + 1;
                                                 }
                                             } ?>
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -117,7 +111,6 @@ if (strlen($_SESSION['alogin']) == 0) {
 
         <script>
             window.onload = function() {
-
                 // Line chart from swirlData for dashReport
                 var ctx = document.getElementById("dashReport").getContext("2d");
                 window.myLine = new Chart(ctx).Line(swirlData, {
@@ -138,7 +131,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                 window.myDoughnut = new Chart(doctx).Doughnut(doughnutData, {
                     responsive: true
                 });
-
             }
         </script>
     </body>

@@ -26,7 +26,6 @@ if (strlen($_SESSION['login']) == 0) {
       $error = "Your current password is wrong";
     }
   }
-
 ?>
   <!DOCTYPE HTML>
   <html lang="en">

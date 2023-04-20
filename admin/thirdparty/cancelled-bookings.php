@@ -5,7 +5,6 @@ include('../includes/config.php');
 if (strlen($_SESSION['alogin']) == 0) {
 	header('location:index.php');
 } else {
-
 ?>
 
 	<!doctype html>
@@ -94,29 +93,29 @@ if (strlen($_SESSION['alogin']) == 0) {
 											$results = $query->fetchAll(PDO::FETCH_OBJ);
 											$cnt = 1;
 											if ($query->rowCount() > 0) {
-												foreach ($results as $result) { 
-                                                    if($result->BrandName=="Mercedes"){?>
-													<tr>
-														<td><?php echo htmlentities($cnt); ?></td>
-														<td><?php echo htmlentities($result->FullName); ?></td>
-														<td><?php echo htmlentities($result->BookingNumber); ?></td>
-														<td><a href="edit-vehicle.php?id=<?php echo htmlentities($result->vid); ?>"><?php echo htmlentities($result->VehiclesTitle); ?></td>
-														<td><?php
-															if ($result->Status == 0) {
-																echo htmlentities('Not Confirmed yet');
-															} else if ($result->Status == 1) {
-																echo htmlentities('Confirmed');
-															} else {
-																echo htmlentities('Cancelled');
-															}
-															?></td>
-														<td><?php echo htmlentities($result->PostingDate); ?></td>
-														<td>
-															<a href="booking-details.php?bid=<?php echo htmlentities($result->id); ?>"> View</a>
-														</td>
-													</tr>
+												foreach ($results as $result) {
+													if ($result->BrandName == "Mercedes") { ?>
+														<tr>
+															<td><?php echo htmlentities($cnt); ?></td>
+															<td><?php echo htmlentities($result->FullName); ?></td>
+															<td><?php echo htmlentities($result->BookingNumber); ?></td>
+															<td><a href="edit-vehicle.php?id=<?php echo htmlentities($result->vid); ?>"><?php echo htmlentities($result->VehiclesTitle); ?></td>
+															<td><?php
+																if ($result->Status == 0) {
+																	echo htmlentities('Not Confirmed yet');
+																} else if ($result->Status == 1) {
+																	echo htmlentities('Confirmed');
+																} else {
+																	echo htmlentities('Cancelled');
+																}
+																?></td>
+															<td><?php echo htmlentities($result->PostingDate); ?></td>
+															<td>
+																<a href="booking-details.php?bid=<?php echo htmlentities($result->id); ?>"> View</a>
+															</td>
+														</tr>
 											<?php }
-                                            $cnt = $cnt + 1;
+													$cnt = $cnt + 1;
 												}
 											} ?>
 										</tbody>

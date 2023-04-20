@@ -14,7 +14,6 @@ if (isset($_POST['login'])) {
 		$_SESSION['alogin'] = $_POST['username'];
 		echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
 	} else {
-
 		echo "<script>alert('Invalid Details');</script>";
 	}
 }
@@ -39,11 +38,9 @@ if (isset($_POST['login'])) {
 	<link rel="stylesheet" href="css/fileinput.min.css">
 	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
 	<link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
-
 	<div class="login-page bk-img" style="background-image: url(img/login-bg.jpg);">
 		<div class="form-content">
 			<div class="container">
@@ -53,21 +50,15 @@ if (isset($_POST['login'])) {
 						<div class="well row pt-2x pb-3x bk-light">
 							<div class="col-md-8 col-md-offset-2">
 								<form method="post">
-
 									<label for="" class="text-uppercase text-sm">Your Username </label>
 									<input type="text" placeholder="Username" name="username" class="form-control mb">
-
 									<label for="" class="text-uppercase text-sm">Password</label>
 									<input type="password" placeholder="Password" name="password" class="form-control mb">
-
 									<button class="btn btn-primary btn-block" name="login" type="submit">LOGIN</button>
 								</form>
-
 								<p style="margin-top: 4%" align="center"><a href="../index.php">Back to Home</a></p>
 							</div>
-
 						</div>
-
 					</div>
 				</div>
 			</div>

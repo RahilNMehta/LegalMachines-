@@ -74,6 +74,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 					<div class="row">
 						<div class="col-md-12">
 							<h2 class="page-title">Manage Vehicles</h2>
+							
 							<!-- Zero Configuration Table -->
 							<div class="panel panel-default">
 								<div class="panel-heading">Vehicle Details</div>
