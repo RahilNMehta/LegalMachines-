@@ -59,7 +59,6 @@ if (strlen($_SESSION['alogin']) == 0) {
 		$msg = "Data updated successfully";
 	}
 
-
 ?>
 	<!doctype html>
 	<html lang="en" class="no-js">
@@ -117,12 +116,9 @@ if (strlen($_SESSION['alogin']) == 0) {
 			<?php include('includes/leftbar.php'); ?>
 			<div class="content-wrapper">
 				<div class="container-fluid">
-
 					<div class="row">
 						<div class="col-md-12">
-
 							<h2 class="page-title">Edit Vehicle</h2>
-
 							<div class="row">
 								<div class="col-md-12">
 									<div class="panel panel-default">
@@ -139,7 +135,6 @@ if (strlen($_SESSION['alogin']) == 0) {
 											$cnt = 1;
 											if ($query->rowCount() > 0) {
 												foreach ($results as $result) {	?>
-
 													<form method="post" class="form-horizontal" enctype="multipart/form-data">
 														<div class="form-group">
 															<label class="col-sm-2 control-label">Vehicle Title<span style="color:red">*</span></label>
@@ -207,7 +202,6 @@ if (strlen($_SESSION['alogin']) == 0) {
 															<div class="col-sm-4">
 																<input type="text" name="engine" class="form-control" value="<?php echo htmlentities($result->Engine); ?>" required>
 															</div>
-
 															<label class="col-sm-2 control-label">Peak Torque<span style="color:red">*</span></label>
 															<div class="col-sm-4">
 																<input type="text" name="peaktorque" class="form-control" value="<?php echo htmlentities($result->PeakTorque); ?>" required>
@@ -219,7 +213,6 @@ if (strlen($_SESSION['alogin']) == 0) {
 															<div class="col-sm-4">
 																<input type="text" name="peakpower" class="form-control" value="<?php echo htmlentities($result->PeakPower); ?>" required>
 															</div>
-
 															<label class="col-sm-2 control-label">Transmission<span style="color:red">*</span></label>
 															<div class="col-sm-4">
 																<input type="text" name="transmission" class="form-control" value="<?php echo htmlentities($result->Transmission); ?>" required>
@@ -267,6 +260,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 									</div>
 								</div>
 							</div>
+
 							<div class="row">
 								<div class="col-md-12">
 									<div class="panel panel-default">
@@ -421,29 +415,13 @@ if (strlen($_SESSION['alogin']) == 0) {
 													<?php } ?>
 												</div>
 											</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 									<?php }
 											} ?>
-
-
 									<div class="form-group">
 										<div class="col-sm-8 col-sm-offset-2">
 											<button class="btn btn-primary" name="submit" type="submit" style="margin-top:4%">Save changes</button>
 										</div>
 									</div>
-
 									</form>
 										</div>
 									</div>
@@ -455,16 +433,16 @@ if (strlen($_SESSION['alogin']) == 0) {
 			</div>
 		</div>
 
-			<!-- Loading Scripts -->
-			<script src="js/jquery.min.js"></script>
-			<script src="js/bootstrap-select.min.js"></script>
-			<script src="js/bootstrap.min.js"></script>
-			<script src="js/jquery.dataTables.min.js"></script>
-			<script src="js/dataTables.bootstrap.min.js"></script>
-			<script src="js/Chart.min.js"></script>
-			<script src="js/fileinput.js"></script>
-			<script src="js/chartData.js"></script>
-			<script src="js/main.js"></script>
+		<!-- Loading Scripts -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap-select.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.dataTables.min.js"></script>
+		<script src="js/dataTables.bootstrap.min.js"></script>
+		<script src="js/Chart.min.js"></script>
+		<script src="js/fileinput.js"></script>
+		<script src="js/chartData.js"></script>
+		<script src="js/main.js"></script>
 	</body>
 
 	</html>
