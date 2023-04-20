@@ -20,8 +20,8 @@ if (isset($_POST['submit'])) {
   $results1 = $query1->fetchAll(PDO::FETCH_OBJ);
 
   if ($query1->rowCount() == 0) {
-   // $sql = "INSERT INTO  tblbooking(BookingNumber,userEmail,VehicleId,FromDate,ToDate,message,Status) VALUES(:bookingno,:useremail,:vhid,:fromdate,:todate,:message,:status)";
-   $sql = "INSERT INTO  tblbooking(BookingNumber,userEmail,VehicleId,message,Status,PostingDate) VALUES(:bookingno,:useremail,:vhid,:message,:status,:PostingDate)";
+    // $sql = "INSERT INTO  tblbooking(BookingNumber,userEmail,VehicleId,FromDate,ToDate,message,Status) VALUES(:bookingno,:useremail,:vhid,:fromdate,:todate,:message,:status)";
+    $sql = "INSERT INTO  tblbooking(BookingNumber,userEmail,VehicleId,message,Status,PostingDate) VALUES(:bookingno,:useremail,:vhid,:message,:status,:PostingDate)";
     $query = $dbh->prepare($sql);
     $query->bindParam(':bookingno', $bookingno, PDO::PARAM_STR);
     $query->bindParam(':useremail', $useremail, PDO::PARAM_STR);
@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
     $query->bindParam(':message', $message, PDO::PARAM_STR);
     $query->bindParam(':status', $status, PDO::PARAM_STR);
     $query->bindParam(':PostingDate', $PostingDate, PDO::PARAM_STR);
-    
+
     $query->execute();
     $lastInsertId = $dbh->lastInsertId();
     if ($lastInsertId) {
@@ -87,7 +87,7 @@ if (isset($_POST['submit'])) {
   <!--Listing-Image-Slider-->
   <?php
   $vhid = intval($_GET['vhid']);
-  $sql = "SELECT tblvehicles.*,tblbrands.BrandName,tblbrands.id as bid  from tblvehicles join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand where tblvehicles.id=:vhid";
+  $sql = "SELECT tblvehicles.*,tblbrands.BrandName,tblbrands.id as bid from tblvehicles join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand where tblvehicles.id=:vhid";
   $query = $dbh->prepare($sql);
   $query->bindParam(':vhid', $vhid, PDO::PARAM_STR);
   $query->execute();
@@ -185,8 +185,16 @@ if (isset($_POST['submit'])) {
                         </thead>
                         <tbody>
                           <tr>
-                            <td>Air Conditioner</td>
-                            <?php if ($result->AirConditioner == 1) { ?>
+                            <td>GPS System</td>
+                            <?php if ($result->GPSSystem == 1) { ?>
+                              <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <?php } else { ?>
+                              <td><i class="fa fa-close" aria-hidden="true"></i></td>
+                            <?php } ?>
+                          </tr>
+                          <tr>
+                            <td>Electronic Stability Control</td>
+                            <?php if ($result->ElectronicStabilityControl == 1) { ?>
                               <td><i class="fa fa-check" aria-hidden="true"></i></td>
                             <?php } else { ?>
                               <td><i class="fa fa-close" aria-hidden="true"></i></td>
@@ -201,32 +209,40 @@ if (isset($_POST['submit'])) {
                             <?php } ?>
                           </tr>
                           <tr>
-                            <td>Power Steering</td>
-                            <?php if ($result->PowerSteering == 1) { ?>
+                            <td>Brake Assist</td>
+                            <?php if ($result->BrakeAssist == 1) { ?>
                               <td><i class="fa fa-check" aria-hidden="true"></i></td>
                             <?php } else { ?>
                               <td><i class="fa fa-close" aria-hidden="true"></i></td>
                             <?php } ?>
                           </tr>
                           <tr>
-                            <td>Power Windows</td>
-                            <?php if ($result->PowerWindows == 1) { ?>
+                            <td>Alloy Wheels</td>
+                            <?php if ($result->AlloyWheels == 1) { ?>
                               <td><i class="fa fa-check" aria-hidden="true"></i></td>
                             <?php } else { ?>
                               <td><i class="fa fa-close" aria-hidden="true"></i></td>
                             <?php } ?>
                           </tr>
                           <tr>
-                            <td>CD Player</td>
-                            <?php if ($result->CDPlayer == 1) { ?>
+                            <td>Airbags</td>
+                            <?php if ($result->Airbags == 1) { ?>
                               <td><i class="fa fa-check" aria-hidden="true"></i></td>
                             <?php } else { ?>
                               <td><i class="fa fa-close" aria-hidden="true"></i></td>
                             <?php } ?>
                           </tr>
                           <tr>
-                            <td>Leather Seats</td>
-                            <?php if ($result->LeatherSeats == 1) { ?>
+                            <td>Remote Start System</td>
+                            <?php if ($result->RemoteStartSystem == 1) { ?>
+                              <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                            <?php } else { ?>
+                              <td><i class="fa fa-close" aria-hidden="true"></i></td>
+                            <?php } ?>
+                          </tr>
+                          <tr>
+                            <td>Smart Stereo Interface</td>
+                            <?php if ($result->SmartStereoInterface == 1) { ?>
                               <td><i class="fa fa-check" aria-hidden="true"></i></td>
                             <?php } else { ?>
                               <td><i class="fa fa-close" aria-hidden="true"></i></td>
@@ -236,45 +252,13 @@ if (isset($_POST['submit'])) {
                             <td>Central Locking</td>
                             <?php if ($result->CentralLocking == 1) { ?>
                               <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                            <?php } else { ?>
-                              <td><i class="fa fa-close" aria-hidden="true"></i></td>
-                            <?php } ?>
-                          </tr>
-                          <tr>
-                            <td>Power Door Locks</td>
-                            <?php if ($result->PowerDoorLocks == 1) { ?>
-                              <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                            <?php } else { ?>
-                              <td><i class="fa fa-close" aria-hidden="true"></i></td>
-                            <?php } ?>
-                          </tr>
-                          <tr>
-                            <td>Brake Assist</td>
-                            <?php if ($result->BrakeAssist == 1) { ?>
-                              <td><i class="fa fa-check" aria-hidden="true"></i></td>
                             <?php  } else { ?>
                               <td><i class="fa fa-close" aria-hidden="true"></i></td>
                             <?php } ?>
                           </tr>
                           <tr>
-                            <td>Driver Airbag</td>
-                            <?php if ($result->DriverAirbag == 1) { ?>
-                              <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                            <?php } else { ?>
-                              <td><i class="fa fa-close" aria-hidden="true"></i></td>
-                            <?php } ?>
-                          </tr>
-                          <tr>
-                            <td>Passenger Airbag</td>
-                            <?php if ($result->PassengerAirbag == 1) { ?>
-                              <td><i class="fa fa-check" aria-hidden="true"></i></td>
-                            <?php } else { ?>
-                              <td><i class="fa fa-close" aria-hidden="true"></i></td>
-                            <?php } ?>
-                          </tr>
-                          <tr>
-                            <td>Crash Sensor</td>
-                            <?php if ($result->CrashSensor == 1) { ?>
+                            <td>Adaptive Cruise Control</td>
+                            <?php if ($result->AdaptiveCruiseControl == 1) { ?>
                               <td><i class="fa fa-check" aria-hidden="true"></i></td>
                             <?php } else { ?>
                               <td><i class="fa fa-close" aria-hidden="true"></i></td>
@@ -341,8 +325,8 @@ if (isset($_POST['submit'])) {
                       <div class="product-listing-content">
                         <h5><a href="vehical-details.php?vhid=<?php echo htmlentities($result->id); ?>"> <?php echo htmlentities($result->VehiclesTitle); ?></a></h5>
                         <ul class="features_list">
-                          <li><i class="fa fa-user" aria-hidden="true"></i><?php echo htmlentities($result->SeatingCapacity); ?>Seats</li>
-                          <li><i class="fa fa-calendar" aria-hidden="true"></i><?php echo htmlentities($result->ModelYear); ?>Model</li>
+                          <li><i class="fa fa-user" aria-hidden="true"></i><?php echo htmlentities($result->SeatingCapacity); ?> Seats</li>
+                          <li><i class="fa fa-calendar" aria-hidden="true"></i><?php echo htmlentities($result->ModelYear); ?> Model</li>
                           <li><i class="fa fa-car" aria-hidden="true"></i><?php echo htmlentities($result->FuelType); ?></li>
                         </ul>
                       </div>
