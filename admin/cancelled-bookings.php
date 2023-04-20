@@ -19,7 +19,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 		<meta name="author" content="">
 		<meta name="theme-color" content="#3e454c">
 
-		<title>Legal Machines | New Bookings </title>
+		<title>Legal Machines | Canceled Bookings </title>
 
 		<!-- Font awesome -->
 		<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -66,7 +66,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-12">
-							<h2 class="page-title">New Bookings</h2>
+							<h2 class="page-title">Canceled Bookings</h2>
 
 							<!-- Zero Configuration Table -->
 							<div class="panel panel-default">
@@ -86,15 +86,15 @@ if (strlen($_SESSION['alogin']) == 0) {
 										</thead>
 										<tbody>
 											<?php
-											$status = 0;
-											$sql = "SELECT tblusers.FullName,tblbrands.BrandName,tblvehicles.VehiclesTitle,tblbooking.message,tblbooking.VehicleId as vid,tblbooking.Status,tblbooking.PostingDate,tblbooking.id,tblbooking.BookingNumber  from tblbooking join tblvehicles on tblvehicles.id=tblbooking.VehicleId join tblusers on tblusers.EmailId=tblbooking.userEmail join tblbrands on tblvehicles.VehiclesBrand=tblbrands.id where tblbooking.Status=:status";
+											$status = 2;
+											$sql = "SELECT tblusers.FullName,tblbrands.BrandName,tblvehicles.VehiclesTitle,tblbooking.message,tblbooking.VehicleId as vid,tblbooking.Status,tblbooking.PostingDate,tblbooking.id,tblbooking.BookingNumber from tblbooking join tblvehicles on tblvehicles.id=tblbooking.VehicleId join tblusers on tblusers.EmailId=tblbooking.userEmail join tblbrands on tblvehicles.VehiclesBrand=tblbrands.id where tblbooking.Status=:status";
 											$query = $dbh->prepare($sql);
 											$query->bindParam(':status', $status, PDO::PARAM_STR);
 											$query->execute();
 											$results = $query->fetchAll(PDO::FETCH_OBJ);
 											$cnt = 1;
 											if ($query->rowCount() > 0) {
-												foreach ($results as $result) {?>
+												foreach ($results as $result) { ?>
 													<tr>
 														<td><?php echo htmlentities($cnt); ?></td>
 														<td><?php echo htmlentities($result->FullName); ?></td>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('../includes/config.php');
 if (strlen($_SESSION['alogin']) == 0) {
 	header('location:index.php');
 } else {
@@ -19,24 +19,24 @@ if (strlen($_SESSION['alogin']) == 0) {
 		<meta name="author" content="">
 		<meta name="theme-color" content="#3e454c">
 
-		<title>Legal Machines | New Bookings </title>
+		<title>Legal Machines | Cancelled Bookings </title>
 
 		<!-- Font awesome -->
-		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="../css/font-awesome.min.css">
 		<!-- Sandstone Bootstrap CSS -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
 		<!-- Bootstrap Datatables -->
-		<link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
+		<link rel="stylesheet" href="../css/dataTables.bootstrap.min.css">
 		<!-- Bootstrap social button library -->
-		<link rel="stylesheet" href="css/bootstrap-social.css">
+		<link rel="stylesheet" href="../css/bootstrap-social.css">
 		<!-- Bootstrap select -->
-		<link rel="stylesheet" href="css/bootstrap-select.css">
+		<link rel="stylesheet" href="../css/bootstrap-select.css">
 		<!-- Bootstrap file input -->
-		<link rel="stylesheet" href="css/fileinput.min.css">
+		<link rel="stylesheet" href="../css/fileinput.min.css">
 		<!-- Awesome Bootstrap checkbox -->
-		<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
+		<link rel="stylesheet" href="../css/awesome-bootstrap-checkbox.css">
 		<!-- Admin Stye -->
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="../css/style.css">
 		<style>
 			.errorWrap {
 				padding: 10px;
@@ -59,14 +59,14 @@ if (strlen($_SESSION['alogin']) == 0) {
 	</head>
 
 	<body>
-		<?php include('includes/header.php'); ?>
+		<?php include('../includes/header.php'); ?>
 		<div class="ts-main-content">
 			<?php include('includes/leftbar.php'); ?>
 			<div class="content-wrapper">
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-12">
-							<h2 class="page-title">New Bookings</h2>
+							<h2 class="page-title">Canceled Bookings</h2>
 
 							<!-- Zero Configuration Table -->
 							<div class="panel panel-default">
@@ -86,15 +86,16 @@ if (strlen($_SESSION['alogin']) == 0) {
 										</thead>
 										<tbody>
 											<?php
-											$status = 0;
-											$sql = "SELECT tblusers.FullName,tblbrands.BrandName,tblvehicles.VehiclesTitle,tblbooking.message,tblbooking.VehicleId as vid,tblbooking.Status,tblbooking.PostingDate,tblbooking.id,tblbooking.BookingNumber  from tblbooking join tblvehicles on tblvehicles.id=tblbooking.VehicleId join tblusers on tblusers.EmailId=tblbooking.userEmail join tblbrands on tblvehicles.VehiclesBrand=tblbrands.id where tblbooking.Status=:status";
+											$status = 2;
+											$sql = "SELECT tblusers.FullName,tblbrands.BrandName,tblvehicles.VehiclesTitle,tblbooking.message,tblbooking.VehicleId as vid,tblbooking.Status,tblbooking.PostingDate,tblbooking.id,tblbooking.BookingNumber from tblbooking join tblvehicles on tblvehicles.id=tblbooking.VehicleId join tblusers on tblusers.EmailId=tblbooking.userEmail join tblbrands on tblvehicles.VehiclesBrand=tblbrands.id where tblbooking.Status=:status";
 											$query = $dbh->prepare($sql);
 											$query->bindParam(':status', $status, PDO::PARAM_STR);
 											$query->execute();
 											$results = $query->fetchAll(PDO::FETCH_OBJ);
 											$cnt = 1;
 											if ($query->rowCount() > 0) {
-												foreach ($results as $result) {?>
+												foreach ($results as $result) { 
+                                                    if($result->BrandName=="Mercedes"){?>
 													<tr>
 														<td><?php echo htmlentities($cnt); ?></td>
 														<td><?php echo htmlentities($result->FullName); ?></td>
@@ -114,7 +115,8 @@ if (strlen($_SESSION['alogin']) == 0) {
 															<a href="booking-details.php?bid=<?php echo htmlentities($result->id); ?>"> View</a>
 														</td>
 													</tr>
-											<?php $cnt = $cnt + 1;
+											<?php }
+                                            $cnt = $cnt + 1;
 												}
 											} ?>
 										</tbody>
@@ -128,15 +130,15 @@ if (strlen($_SESSION['alogin']) == 0) {
 		</div>
 
 		<!-- Loading Scripts -->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap-select.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/jquery.dataTables.min.js"></script>
-		<script src="js/dataTables.bootstrap.min.js"></script>
-		<script src="js/Chart.min.js"></script>
-		<script src="js/fileinput.js"></script>
-		<script src="js/chartData.js"></script>
-		<script src="js/main.js"></script>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap-select.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/jquery.dataTables.min.js"></script>
+		<script src="../js/dataTables.bootstrap.min.js"></script>
+		<script src="../js/Chart.min.js"></script>
+		<script src="../js/fileinput.js"></script>
+		<script src="../js/chartData.js"></script>
+		<script src="../js/main.js"></script>
 	</body>
 
 	</html>

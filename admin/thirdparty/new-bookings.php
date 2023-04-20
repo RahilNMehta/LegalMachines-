@@ -114,7 +114,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                                 ?></td>
                                                             <td><?php echo htmlentities($result->PostingDate); ?></td>
                                                             <td>
-                                                                <a href="bookig-details.php?bid=<?php echo htmlentities($result->id); ?>"> View</a>
+                                                                <a href="booking-details.php?bid=<?php echo htmlentities($result->id); ?>"> View</a>
                                                             </td>
                                                         </tr>
                                             <?php }
