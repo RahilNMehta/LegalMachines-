@@ -160,7 +160,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 															if ($query->rowCount() > 0) {
 																foreach ($results as $result) {
 															?>
-																	<option value="<?php echo htmlentities($result->BrandName); ?>"><?php echo htmlentities($result->BrandName); ?></option>
+																	<option value="<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->BrandName); ?></option>
 															<?php }
 															} ?>
 														</select>

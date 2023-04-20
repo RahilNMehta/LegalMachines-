@@ -8,7 +8,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
     if (isset($_REQUEST['del'])) {
 		$delid = intval($_GET['del']);
-		$sql = "delete from tblvehicles  WHERE  id=:delid";
+		$sql = "delete from tblvehicles WHERE id=:delid";
 		$query = $dbh->prepare($sql);
 		$query->bindParam(':delid', $delid, PDO::PARAM_STR);
 		$query->execute();
